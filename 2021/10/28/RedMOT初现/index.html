@@ -6,25 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Blue MOT parameters measurement | TLee备忘录</title>
+  <title>RedMOT初现 | TLee备忘录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="蓝MOT的移频方案和MOT参数测量">
+  <meta name="description" content="RedMOT初步实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blue MOT parameters measurement">
-<meta property="og:url" content="http://example.com/2021/02/13/Blue-MOT-parameters-measurement/index.html">
+<meta property="og:title" content="RedMOT初现">
+<meta property="og:url" content="http://example.com/2021/10/28/RedMOT%E5%88%9D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="TLee备忘录">
-<meta property="og:description" content="蓝MOT的移频方案和MOT参数测量">
+<meta property="og:description" content="RedMOT初步实现">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/843128a1a62decf86ad05622bb53ccdcb86766edc58bf2406711dced1f0ba3ae613ec4e9b0a65a525f37200857df0a69?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8710.JPG&amp;size=750">
-<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/233e8b0d82e8ba16f2b3621587ef1d1e4921d521512c9f9a9e7113cbe36fa8a31946bf7f19103a815aaf3c73a570220b?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8713.JPG&amp;size=750">
-<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/103a01947603ce9e89eb1a2f55c426cab7f702aaea725f3803061f5e1eb8464b3e5bf615a9b96d34f8c8d53a74adb2c2?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8714.JPG&amp;size=750">
-<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/4c24bc4184b2f228e41cabe8ed6522bda6db793386670c8f5bf07cf50e79b4c5d9e68858277cebb61fe6ffca3de91414?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8715.JPG&amp;size=750">
-<meta property="article:published_time" content="2021-02-13T02:48:33.000Z">
-<meta property="article:modified_time" content="2021-02-13T02:57:13.399Z">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/84b1d3761cd999aec9a3258a8951d9664ebdd5ca9bd6ae5278e762a0dbd9085e360b244b4b60f82a97dad2322feb7b18?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_off_broadband.jpg&size=750">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/acc47c38ccdbbbc675c6d811fa8bbd2bfa0fe8becb38646aa94f0934d1e9b5082d58161580da26676191dd773a6d7213?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_on_broadband.jpg&size=750">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/c7caa90dc4aca4d13a27fe1b757ef16bb5445204ea84c998fe459460ac134b562645f97cc7eba3b7b76679b584eddb33?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=%E7%A4%BA%E6%B3%A2%E5%99%A8_modulate_off_singleband.png&size=750">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/e7800186c7038fa551a440ca4644fdcf7ff83637643a77256c404ec6acf8260dbdbb20537d4a3e369fdfa9f72ba63869?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=%E7%A4%BA%E6%B3%A2%E5%99%A8_modulate_on_singleband.png&size=750">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/142bf0ffe37cc9320f67b6f7172390254278c9ca93d46c498653467ded437d2bfbe8449f99b0f0ccbc9b16ddc51f761f?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_off_singleband.jpg&size=750">
+<meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/7ff2d660eebe98170efbd62eb13f5251d7ff9214de79f861c1650b248f6d27b87f39e6a35c409a19f24892a8c23c0255?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_on_singleband.jpg&size=750">
+<meta property="article:published_time" content="2021-10-28T02:12:20.000Z">
+<meta property="article:modified_time" content="2021-10-28T08:18:20.402Z">
 <meta property="article:author" content="TLee">
-<meta property="article:tag" content="strontium-Blue MOT">
+<meta property="article:tag" content="RedMOT初现">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/843128a1a62decf86ad05622bb53ccdcb86766edc58bf2406711dced1f0ba3ae613ec4e9b0a65a525f37200857df0a69?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8710.JPG&amp;size=750">
+<meta name="twitter:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/84b1d3761cd999aec9a3258a8951d9664ebdd5ca9bd6ae5278e762a0dbd9085e360b244b4b60f82a97dad2322feb7b18?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_off_broadband.jpg&size=750">
   
     <link rel="alternative" href="/atom.xml" title="TLee备忘录" type="application/atom+xml">
   
@@ -156,31 +158,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Blue-MOT-parameters-measurement" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RedMOT初现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Blue MOT parameters measurement
+      RedMOT初现
     </h1>
   
 
         
-        <a href="/2021/02/13/Blue-MOT-parameters-measurement/" class="archive-article-date">
-  	<time datetime="2021-02-13T02:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-13</time>
+        <a href="/2021/10/28/RedMOT%E5%88%9D%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2021-10-28T02:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="蓝MOT的移频方案和MOT参数测量"><a href="#蓝MOT的移频方案和MOT参数测量" class="headerlink" title="蓝MOT的移频方案和MOT参数测量"></a>蓝MOT的移频方案和MOT参数测量</h1><a id="more"></a>
-<h2 id="蓝光系统移频方案"><a href="#蓝光系统移频方案" class="headerlink" title="蓝光系统移频方案"></a>蓝光系统移频方案</h2><p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/843128a1a62decf86ad05622bb53ccdcb86766edc58bf2406711dced1f0ba3ae613ec4e9b0a65a525f37200857df0a69?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8710.JPG&amp;size=750" alt="移频方案" title="蓝光移频方案"></p>
-<h2 id="蓝MOT中原子数目测量"><a href="#蓝MOT中原子数目测量" class="headerlink" title="蓝MOT中原子数目测量"></a>蓝MOT中原子数目测量</h2><p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/233e8b0d82e8ba16f2b3621587ef1d1e4921d521512c9f9a9e7113cbe36fa8a31946bf7f19103a815aaf3c73a570220b?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8713.JPG&amp;size=750" alt="蓝MOT中原子数目估算" title="蓝MOT中原子数目估算"></p>
-<h2 id="蓝MOT装载"><a href="#蓝MOT装载" class="headerlink" title="蓝MOT装载"></a>蓝MOT装载</h2><p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/103a01947603ce9e89eb1a2f55c426cab7f702aaea725f3803061f5e1eb8464b3e5bf615a9b96d34f8c8d53a74adb2c2?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8714.JPG&amp;size=750" alt="蓝MOT装载" title="蓝MOT装载"></p>
-<h2 id="不同同位素的MOT"><a href="#不同同位素的MOT" class="headerlink" title="不同同位素的MOT"></a>不同同位素的MOT</h2><p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/4c24bc4184b2f228e41cabe8ed6522bda6db793386670c8f5bf07cf50e79b4c5d9e68858277cebb61fe6ffca3de91414?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=281475087402817&amp;fname=%E5%B9%BB%E7%81%AF%E7%89%8715.JPG&amp;size=750" alt="不同同位素的MOT" title="不同同位素的MOT"></p>
+        <h1 id="RedMOT初步实现"><a href="#RedMOT初步实现" class="headerlink" title="RedMOT初步实现"></a>RedMOT初步实现</h1><a id="more"></a>
+<h1 id="实验改动工作总结"><a href="#实验改动工作总结" class="headerlink" title="实验改动工作总结"></a>实验改动工作总结</h1><blockquote>
+<ol>
+<li>蓝MOT冷却光束光纤头脏导致冷却光模式不好，清理了光纤头，使得冷却光束尽可能为基模；</li>
+<li>红蓝光合束，在光学平台上分别将红蓝光放射到5m多远，调二者合束；</li>
+<li>固定好竖直方向的光束保持不变，然后调节水平方向的冷却光，使得出现形态较好的蓝MOT；</li>
+<li>每束蓝光在合束前均添加了一个半波片和两个四分之一波片，用于调节偏振；每束红光在合束前均添加一个半波片用于条件偏振，<strong>偏振分析仪波长下限为700nm，461并不准确，偏振对蓝MOT的影响尚不明确</strong></li>
+<li>repump 和塞曼减速光尽早关断，对信号影响较大；</li>
+<li>轴向磁场的梯度补偿很重要，目前补偿电流为5.8A；</li>
+<li>利用冷却光做探测光的时候，冷却光打开时间应该在400μs，否则信号无法上升到最大；</li>
+</ol>
+</blockquote>
+<h1 id="宽带调制的效果"><a href="#宽带调制的效果" class="headerlink" title="宽带调制的效果"></a>宽带调制的效果</h1><blockquote>
+<p>测试条件</p>
+<blockquote>
+<p>测量时间点20ms，宽带调制时磁场电流0.5A，观察示波器上的信号时，MOT冷却光作为探测光，探测光开启时间为400μs，EMCCD成像时，用单独的探测光，探测光开启400μs，曝光时间并未改动仍然是100μs。repump光在红光开启蓝光关断的时候已经完全关断。红光在蓝光关断前刚好完全开启，通过C8366所测时序。</p>
+</blockquote>
+<p>实验结果</p>
+<blockquote>
+<p>最高可以调到180mV的信号，但是非常依赖蓝MOT的信号和光束的稳定性，信号不稳，基本维持在130mV的信号；利用EMCCD成像结果如下，左右依次分别是关闭和开启红光Modulate的结果：</p>
+</blockquote>
+</blockquote>
+<p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/84b1d3761cd999aec9a3258a8951d9664ebdd5ca9bd6ae5278e762a0dbd9085e360b244b4b60f82a97dad2322feb7b18?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_off_broadband.jpg&size=750" width="30%" height="30%" title = "20ms宽带调制EMCCD成像，Modulate关闭，磁场0.5A"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/acc47c38ccdbbbc675c6d811fa8bbd2bfa0fe8becb38646aa94f0934d1e9b5082d58161580da26676191dd773a6d7213?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_on_broadband.jpg&size=750" width="30%" height="30%" title = "20ms宽带调制EMCCD成像，Modulate开启，磁场0.5A"></p>
+<h1 id="singleband效果，红MOT"><a href="#singleband效果，红MOT" class="headerlink" title="singleband效果，红MOT"></a>singleband效果，红MOT</h1><blockquote>
+<p>条件：</p>
+<blockquote>
+<ul>
+<li>磁场曲线通过张乃琛的磁场探头所测的数据优化过，10ms自然切断，然后50ms的0-1A的电流爬升，在61ms处探测；</li>
+<li>宽带调制信号由安捷伦信号发生器提供，调制中心频率为107.22MHz，频偏为480KHz，调制速度为40KHz，单频信号是由labview控制的DDS提供，二者通过minicircus的射频开关实现切换，在射频开关后依次通过小功放，倍频器，大功放，给红光种子光的AOM提供射频信号；</li>
+<li>红光的功率分配：上下光略大，约为2.5mW，水平均分约为1.5mW左右，光束微微汇聚，以弥补功率平衡。</li>
+<li>红光偏振，每束红光合束前均添加了一个半波片，然后在偏振分析仪上观测其偏振水平为左旋圆偏，上下为右旋圆偏（光束直接射入偏振分析仪，未经过反射镜）</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="示波器结果："><a href="#示波器结果：" class="headerlink" title="示波器结果："></a>示波器结果：</h2><p>左右依次分别是关闭和开启红光Modulate的结果，有100mV的信号</p>
+<p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/c7caa90dc4aca4d13a27fe1b757ef16bb5445204ea84c998fe459460ac134b562645f97cc7eba3b7b76679b584eddb33?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=%E7%A4%BA%E6%B3%A2%E5%99%A8_modulate_off_singleband.png&size=750" width="30%" height="30%" title = "61ms singleband EMCCD成像，Modulate关闭，磁场0.5A"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/e7800186c7038fa551a440ca4644fdcf7ff83637643a77256c404ec6acf8260dbdbb20537d4a3e369fdfa9f72ba63869?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=%E7%A4%BA%E6%B3%A2%E5%99%A8_modulate_on_singleband.png&size=750" width="30%" height="30%" title = "61ms singleband EMCCD成像，Modulate开启，磁场0.5A"></p>
+<h2 id="EMCCD成像结果："><a href="#EMCCD成像结果：" class="headerlink" title="EMCCD成像结果："></a>EMCCD成像结果：</h2><p>左右依次分别是关闭和开启红光Modulate的结果</p>
+<p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/142bf0ffe37cc9320f67b6f7172390254278c9ca93d46c498653467ded437d2bfbe8449f99b0f0ccbc9b16ddc51f761f?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_off_singleband.jpg&size=750" width="30%" height="30%" title = "61ms singleband EMCCD成像，Modulate关闭，磁场0.5A"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/7ff2d660eebe98170efbd62eb13f5251d7ff9214de79f861c1650b248f6d27b87f39e6a35c409a19f24892a8c23c0255?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=modulate_on_singleband.jpg&size=750" width="30%" height="30%" title = "61ms singleband EMCCD成像，Modulate开启，磁场0.5A"></p>
+<h1 id="结果讨论"><a href="#结果讨论" class="headerlink" title="结果讨论"></a>结果讨论</h1><blockquote>
+<ol>
+<li>背景条纹的原因，如何消除？</li>
+<li>时序细节的细扣？</li>
+<li>蓝MOT虽然肉眼看三维均很圆，但是，EMCCD成像出来中空，不凝实，可能和偏振磁场相关，相应的蓝MOT的温度可能需要重新测量，现在红蓝MOT的转化效率相当低。</li>
+</ol>
+</blockquote>
 
       
 
@@ -225,7 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">strontium-Blue MOT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RedMOT初现</a>
         		</li>
       		
 		</ul>
@@ -281,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/02/13/Blue-MOT-parameters-measurement/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/28/RedMOT%E5%88%9D%E7%8E%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +337,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/02/13/Experimental-result-material/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Experimental result material
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/02/13/Zeeman-slower/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Zeeman slower</div>
+    <a href="/2021/07/01/Broadband-Sequence-Diagram/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Broadband_Sequence_Diagram</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%93%9DMOT%E7%9A%84%E7%A7%BB%E9%A2%91%E6%96%B9%E6%A1%88%E5%92%8CMOT%E5%8F%82%E6%95%B0%E6%B5%8B%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">蓝MOT的移频方案和MOT参数测量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E5%85%89%E7%B3%BB%E7%BB%9F%E7%A7%BB%E9%A2%91%E6%96%B9%E6%A1%88"><span class="toc-number">1.1.</span> <span class="toc-text">蓝光系统移频方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9DMOT%E4%B8%AD%E5%8E%9F%E5%AD%90%E6%95%B0%E7%9B%AE%E6%B5%8B%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">蓝MOT中原子数目测量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9DMOT%E8%A3%85%E8%BD%BD"><span class="toc-number">1.3.</span> <span class="toc-text">蓝MOT装载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%90%8C%E4%BD%8D%E7%B4%A0%E7%9A%84MOT"><span class="toc-number">1.4.</span> <span class="toc-text">不同同位素的MOT</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RedMOT%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text">RedMOT初步实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%94%B9%E5%8A%A8%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">实验改动工作总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%BD%E5%B8%A6%E8%B0%83%E5%88%B6%E7%9A%84%E6%95%88%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">宽带调制的效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#singleband%E6%95%88%E6%9E%9C%EF%BC%8C%E7%BA%A2MOT"><span class="toc-number">4.</span> <span class="toc-text">singleband效果，红MOT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E6%B3%A2%E5%99%A8%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">示波器结果：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EMCCD%E6%88%90%E5%83%8F%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">EMCCD成像结果：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E8%AE%A8%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">结果讨论</span></a></li></ol>
                     </div>
                 </span>
             </div>
