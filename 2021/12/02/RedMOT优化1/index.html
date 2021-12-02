@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/29cdf2c7179d4a40534e142378fb82dd25ab1ffef7e0ceac89b02559909b2c8eb2e157b8d3b7e1e622c877fb8c5eb0a3?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=B_0.7_Nsample_Tx.png&size=750">
 <meta property="og:image" content="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/bb556f3300cb59150f1afd879e2aa66821927e5af2364cb1e77f202663a975c93c63a02c9eb362ef7c73922f5e699616?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=B_0.7_Nsample_Ty.png&size=750">
 <meta property="article:published_time" content="2021-12-02T02:12:20.000Z">
-<meta property="article:modified_time" content="2021-12-02T03:48:58.782Z">
+<meta property="article:modified_time" content="2021-12-02T06:55:30.446Z">
 <meta property="article:author" content="TLee">
 <meta property="article:tag" content="RedMOT">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
 </blockquote>
 <h2 id="优化窄带的末态的光功率和频率"><a href="#优化窄带的末态的光功率和频率" class="headerlink" title="优化窄带的末态的光功率和频率"></a>优化窄带的末态的光功率和频率</h2><blockquote>
 <p>RedMOT的温度理应取决于末态的频率和光功率。但我们测量温度发现改变末态的频率对于温度并未改善效果，只会改变椭球的大小和信号的强弱，我们觉得是功率增宽的问题。</p>
-<p>红光的饱和光强Is为2.96μW/cm^2 ，文献中每束光的功率为5mW，光束直径为2cm，做种降为其0.008倍，也就是每束冷却光12.7μW/cm^2 ，即4Is。目前我们的红光功率控制由newport-LB1005和Mixer配合进行反馈控制，存在的问题是设定值为0的时候仍然有0.5mW的光束，无法降低，Mixer是单向控制，不识别负电压，另外我们的光斑直径1.4cm，所以造成我们最后每束冷却光的末态光强为108μW/cm^ 2，即36Is，造成功率增宽6倍左右，导致我们的温度无法下去。</p>
+<p>红光的饱和光强Is为2.96μW/cm^2 ，文献中每束光的功率为5mW，光束直径为2cm，最终降为其0.008倍，也就是每束冷却光12.7μW/cm^2 ，即4Is。目前我们的红光功率控制由newport-LB1005和Mixer配合进行反馈控制，存在的问题是设定值为0的时候仍然有0.5mW的光束，无法降低，Mixer是单向控制，不识别负电压，另外我们的光斑直径1.4cm，所以造成我们最后每束冷却光的末态光强为108μW/cm^ 2，即36Is，造成功率增宽6倍左右，导致我们的温度无法下去。</p>
 </blockquote>
 <h2 id="时序代码存档"><a href="#时序代码存档" class="headerlink" title="时序代码存档"></a>时序代码存档</h2><blockquote>
 <p><strong>注意：EMCCD的光快门有延时，在改动代码的时候EMCCD的出发信号必须保持提前探测光20ms，因为冷却光的机械光开关也有一定延时，我们控制冷却光光开关提前6.5ms开启，EMCCD曝光时间5ms，探测光时间200μs。DDS的代码时间必须按照顺序来，因为其触发的原因，其它模拟和数字通道可以分区块写。</strong></p>
@@ -221,7 +221,7 @@
 <p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/29cdf2c7179d4a40534e142378fb82dd25ab1ffef7e0ceac89b02559909b2c8eb2e157b8d3b7e1e622c877fb8c5eb0a3?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=B_0.7_Nsample_Tx.png&size=750" width="40%" height="30%" title = "61ms singleband EMCCD成像，Modulate关闭，磁场0.5A"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/bb556f3300cb59150f1afd879e2aa66821927e5af2364cb1e77f202663a975c93c63a02c9eb362ef7c73922f5e699616?pictype=scale&from=30113&version=3.3.3.3&uin=281475087402817&fname=B_0.7_Nsample_Ty.png&size=750" width="40%" height="30%" title = "61ms singleband EMCCD成像，Modulate关闭，磁场0.5A"></p>
 <h1 id="问题及拟解决方案"><a href="#问题及拟解决方案" class="headerlink" title="问题及拟解决方案"></a>问题及拟解决方案</h1><blockquote>
 <ol>
-<li>红光的饱和光强Is为2.96μW/cm^2 ，文献中每束光的功率为5mW，光束直径为2cm，做种降为其0.008倍，也就是每束冷却光12.7μW/cm^2 ，即4Is。目前我们的红光功率控制由newport-LB1005和Mixer配合进行反馈控制，存在的问题是设定值为0的时候仍然有0.5mW的光束，无法降低，Mixer是单向控制，不识别负电压，另外我们的光斑直径1.4cm，所以造成我们最后每束冷却光的末态光强为108μW/cm^2，即36Is，造成功率增宽6倍左右，导致我们的温度无法下去。目前考虑的解决方案：开环控制，直接通过控制DDS输出的射频信号的功率直接控制AOM的衍射效率，从而控制功率，（丢掉Mixer和反馈闭环），在时序中增加多个射频信号输出幅值，慢慢跳到我们所要的值附近。</li>
+<li>红光的饱和光强Is为2.96μW/cm^2 ，文献中每束光的功率为5mW，光束直径为2cm，最终降为其0.008倍，也就是每束冷却光12.7μW/cm^2 ，即4Is。目前我们的红光功率控制由newport-LB1005和Mixer配合进行反馈控制，存在的问题是设定值为0的时候仍然有0.5mW的光束，无法降低，Mixer是单向控制，不识别负电压，另外我们的光斑直径1.4cm，所以造成我们最后每束冷却光的末态光强为108μW/cm^2，即36Is，造成功率增宽6倍左右，导致我们的温度无法下去。目前考虑的解决方案：开环控制，直接通过控制DDS输出的射频信号的功率直接控制AOM的衍射效率，从而控制功率，（丢掉Mixer和反馈闭环），在时序中增加多个射频信号输出幅值，慢慢跳到我们所要的值附近。</li>
 <li>目前各种光和电的关断开启具体时间并没有优化，特别是磁场也就是红蓝MOT转换的时间点的时序还未推敲，在温度冷下来后需要进一步优化此参数，达到信号的增强。</li>
 </ol>
 </blockquote>
@@ -509,11 +509,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">strontium</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">strontium-Experimental results</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">strontium</a>
+                <a href="javascript:void(0)" class="js-tag color2">RedMOT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RedMOT初现</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,19 +533,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux后台运行MATLAB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">strontium-Red MOT</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RedMOT初现</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">RedMOT</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux后台运行MATLAB</a>
               </li>
             
             <div class="clearfix"></div>
